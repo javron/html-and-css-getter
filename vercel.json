@@ -1,11 +1,7 @@
 {
-    "version": 2,
-    "builds": [
-      { "src": "api/scraper.js", "use": "@vercel/node" }
-    ],
-    "routes": [
-      { "src": "/api/scraper", "methods": ["POST"], "dest": "/api/scraper.js" }
-    ],
-    "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
-  }
-  
+  "version": 2,
+  "builds": [
+    { "src": "api/scraper.js", "use": "@vercel/node" }
+  ],
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
