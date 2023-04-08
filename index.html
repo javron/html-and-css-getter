@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Scraper</title>
+  <style>
+    textarea {
+      width: 100%;
+      min-height: 200px;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Web Scraper</h1>
+  <form id="scrape-form">
+    <label for="url">Enter URL:</label>
+    <input type="url" id="url" required>
+    <button type="submit">Scrape</button>
+  </form>
+  <h2>Extracted HTML</h2>
+  <textarea id="html-output" readonly></textarea>
+  <h2>Extracted CSS</h2>
+  <textarea id="css-output" readonly></textarea>
+
+  <script>
+    document.getElementById('scrape-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const url = document.getElementById('url').value;
+      const response = await fetch('/scrape', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url }),
+      });
+
+      if (response.ok) {
+        const { html, css } = await response.json();
+        document.getElementById('html-output').value = html;
+        document.getElementById('css-output').value = css;
+      } else {
+        alert('Error scraping the webpage.');
+      }
+    });
+  </script>
+</body>
+</html>
