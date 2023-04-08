@@ -28,7 +28,7 @@
     document.getElementById('scrape-form').addEventListener('submit', async (e) => {
       e.preventDefault();
       const url = document.getElementById('url').value;
-      const response = await fetch('/scrape', {
+      const response = await fetch('/api/scraper', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url }),
