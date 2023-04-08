@@ -3,18 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "start": "serve -s . -l 3000"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.4",
     "cheerio": "^1.0.0-rc.10",
-    "express": "^4.17.3",
-    "purify-css": "^1.1.11",
-    "serve": "^13.0.2"
+    "purify-css": "^1.1.11"
   },
   "engines": {
     "node": ">=12.0.0"
